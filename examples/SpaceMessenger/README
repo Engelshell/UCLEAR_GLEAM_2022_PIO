@@ -1,0 +1,4 @@
+Examples a two way text messeger with two devices with Xbee's. One is Earth, one is Mars.
+The MAC addresses in the files have to be changed to your Xbee macs. you can get your xbee macs in the XCTU software
+
+Use arduino software for the .ino sketches. The code is useable in PlatformIO
