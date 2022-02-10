@@ -1,0 +1,7 @@
+In AT (Transparency mode) under 802.15.4 the Xbee's will communicate as if they are serial devices.
+The underlying data sent to an Xbee over serial is converted into the 802.15.4 standard, which means
+it acts similiar to TCP in that it uses ack's, guarantees packet order, and is a "transparent" stream
+of data.
+
+We use the COBS protocol with the PacketSerial library to turn the stream of data into defined "messages" 
+that we construct.

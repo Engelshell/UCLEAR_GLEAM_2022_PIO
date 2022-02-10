@@ -46,7 +46,8 @@ void setup() {
   //Start USB serial
 
   Serial.begin(115200);
- 
+  Serial.readString();
+  
   xbeeSetup();
 
   Serial.println("SETUP STAGE 2: Waiting for Xbee Initialization");
