@@ -10,9 +10,10 @@
 #include <Adafruit_BMP085.h> //get library in arduino software
 #include <Adafruit_Si7021.h>
 #include <utility/imumaths.h> // needed by BNO055
+#include "serialize.h" //our own serializer utility
 #include "config.h"
 #include "network.h"
-#include "serialize.h" //our own serializer utility
+
 #include "sensors.h"
 
 
@@ -48,8 +49,8 @@ void loop() {
       // template parameters.
   }
 
-
-  if(millis() - loop_last_millis_sensors > 2000) {
+/*
+  if(millis() - loop_last_millis_sensors > 100) {
     loop_last_millis_sensors = millis();
   
     LogMessage message;
@@ -57,9 +58,9 @@ void loop() {
     logpack.clear();
     logpack.serialize(message);
     packetSerial.send(logpack.data(), logpack.size());
-  }
+  }*/
 
-  /*
+  
   if(millis() - loop_last_millis_sensors > XBEE_SEND_LOOP_DELAY) {
     loop_last_millis_sensors = millis();
 
@@ -67,15 +68,16 @@ void loop() {
     updateSensorData();
     //update time in sensors data
     sensors.time.millis = millis();
-  
+    SensorData data;
+    data.sensors = sensors;
     //clear data from previous msgpack
     sensorpack.clear();
     //pack sensors data into msgpack format
-    sensorpack.serialize(sensors);
+    sensorpack.serialize(data);
     
     
     packetSerial.send(sensorpack.data(), sensorpack.size());
   }
-  */
+  
 
 }
