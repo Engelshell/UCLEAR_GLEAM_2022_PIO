@@ -25,11 +25,12 @@ void networkPrintMessage(char * message) {
 
     if(ENABLE_USB) {
         Serial.println(message);
-    } else {
-        LogMessage message;
-        message.message = "hi";
-        logpack.clear();
-        logpack.serialize(message);
-        packetSerial.send(logpack.data(), logpack.size());
     }
+
+    LogMessage m;
+    m.message = MsgPack::str_t(message);
+    logpack.clear();
+    logpack.serialize(m);
+    packetSerial.send(logpack.data(), logpack.size());
+    
 }

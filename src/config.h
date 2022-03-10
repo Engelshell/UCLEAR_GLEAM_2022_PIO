@@ -8,6 +8,11 @@
 #define USB_SERIAL_SPEED 230400
 #define XBEE_SERIAL_SPEED 230400
 
+//HC-SR04
+#define HCSR04_TRIGGER_PIN 10
+#define HCSR04_ECHO_PIN 9
+
+//KY
 PacketSerial_<COBS, 0, 1024> packetSerial;
 
 
