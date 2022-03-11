@@ -67,18 +67,6 @@ struct BMP085 {
         );
 };
 
-struct SensorsFront {
-    public:
-        float temperature;
-        float magnetism;
-        float distance;
-    MSGPACK_DEFINE(
-          temperature,
-          magnetism,
-          distance
-      )
-};
-
 struct Time {
     public:
         uint32_t millis;
@@ -92,16 +80,16 @@ struct Sensors {
         BNO055 bno055;
         SI7021 si7021;
         BMP085 bmp085;
-        SensorsFront sensorsfront;
         Time time;
         MSGPACK_DEFINE(
             bno055,
             si7021,
             bmp085,
-            sensorsfront,
             time
         );
 };
+
+
 
 
 
