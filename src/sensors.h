@@ -40,7 +40,7 @@ void sensorsSetup() {
   Wire2.setSCL(3);
   Wire2.setSDA(4);
 
-  sensor_SI7021 = Adafruit_Si7021( &Wire2);
+  sensor_SI7021 = Adafruit_Si7021( &Wire1);
   //Wire.begin(I2C_MASTER, 0x00, I2C_PINS_18_19, I2C_PULLUP_EXT, 400000); // Wire bus, SCL pin 19, SDA pin 18, ext pullup, 400kHz
   //Wire.begin(I2C_MASTER, 0x00, 19, 18); // equivalent to above, will default to ext pullup at 400kHz 
   //Wire.begin(I2C_MASTER, 0x00, 16, 18); // similar to above, but using SCL pin 16 and SDA pin 18
@@ -61,7 +61,7 @@ void sensorsSetup() {
     networkPrintMessage("ERROR: Could not find SI7021 Sensor.");
   }
 
-  if(sensor_BMP085.begin(sensor_BMP085_mode, &Wire1)) {
+  if(sensor_BMP085.begin(sensor_BMP085_mode, &Wire2)) {
     hasSensorBMP085 = true;
   } else {
     networkPrintMessage("ERROR: Could not find BMP085 Sensor.");
