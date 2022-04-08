@@ -51,7 +51,6 @@ void loop() {
         
         //120 bytes
         
-        //const uint8_t* message= "//abcdefasdfewwdfewafdfwasdfabcdefghijklmnopqrstuvqxyzabcdefghijklmnopqrstuvqxyz1234567890-=!@#$%^&*()_+[]{};':,.<>/?\\|";
         // Send the data
         packetSerial.send(counter1.counter8, sizeof(counter1.counter8));
         counter1.counter++;
